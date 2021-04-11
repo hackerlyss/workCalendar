@@ -46,7 +46,7 @@ function saveActivity() {
       comment0: act1.value.trim()
     }
     localStorage.setItem('commentSave', JSON.stringify(commentSave));
-    console.log(commentSave)
+    // console.log(commentSave)
   
   
 }
@@ -55,7 +55,7 @@ function saveActivity() {
 function renderActivity() {
     var lastActivity = JSON.parse(localStorage.getItem('commentSave'));
     if (lastActivity !== null) {
-      act1.innerHTML = lastActivity.comment0;
+      act1.textContent = lastActivity.comment0;
     } else {
       return;
     }
