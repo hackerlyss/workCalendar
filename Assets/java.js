@@ -46,8 +46,7 @@ function saveActivity() {
       comment0: act1.value.trim()
     }
     localStorage.setItem('commentSave', JSON.stringify(commentSave));
-    // console.log(commentSave)
-  
+    console.log(commentSave)
   
 }
 
@@ -55,17 +54,16 @@ function saveActivity() {
 function renderActivity() {
     var lastActivity = JSON.parse(localStorage.getItem('commentSave'));
     if (lastActivity !== null) {
-      act1.textContent = lastActivity.comment0;
+      act1.innerHTML = lastActivity.comment0;
     } else {
       return;
     }
-  
  
 }
 
 //event button
 var buttonStore = document.querySelector('.save-button')
-buttonStore.addEventListener('click', function (event) {
+buttonStore.addEventListener('click', function ( event ) {
   event.preventDefault();
   saveActivity();
   renderActivity();
