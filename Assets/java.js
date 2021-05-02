@@ -42,17 +42,16 @@ function renderClock() {
   
 // saves activity from timeslot
 function saveActivity() {
-    var commentSave = {
-      comment0: act1.value.trim()
-    }
-    localStorage.setItem('commentSave', JSON.stringify(commentSave));
+    var commentSave = $(this).siblings(".form-control").text();
+    var activity = $(this).siblings("input").val();
+    localStorage.setItem(commentSave, activity);
     console.log(commentSave)
   
 }
 
 //renders activity from timeslot
 function renderActivity() {
-    var lastActivity = JSON.parse(localStorage.getItem('commentSave'));
+    var lastActivity = JSON.parse(localStorage.getItem(commentSave));
     if (lastActivity !== null) {
       act1.innerHTML = lastActivity.comment0;
     } else {
